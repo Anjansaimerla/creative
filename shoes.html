@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRYDE // KINETIX 01 — Next-Gen Aerodynamic Footwear</title>
+  <meta name="description" content="Defy gravity with STRYDE Kinetix 01. Engineered with dual-wishbone carbon plates, sub-critical nitrogen foam, and bespoke kinetic weave." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./shoes.css" />
+</head>
+<body class="shoes-theme">
+  <!-- Custom Neon Kinetic Cursor System -->
+  <div id="shoe-cursor-dot" class="cursor-dot"></div>
+  <div id="shoe-cursor-ring" class="cursor-ring">
+    <span class="cursor-text"></span>
+  </div>
+  <canvas id="shoe-cursor-canvas"></canvas>
+
+  <!-- Ambient Light Pulse & Grid Overlay -->
+  <div class="cyber-grid-overlay"></div>
+  <div class="cursor-ambient-spotlight" id="cursorSpotlight"></div>
+
+  <!-- Global Header -->
+  <header class="shoes-header" id="shoesHeader">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo magnetic" data-cursor="STRYDE">
+        <span class="logo-badge">⚡</span>
+        <div class="logo-titles">
+          <span class="logo-main">STRYDE // LABS</span>
+          <span class="logo-sub">KINETIC FOOTWEAR ATELIER</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="shoeNav">
+        <a href="#hero" class="nav-item magnetic" data-cursor="HERO">Kinetix 01</a>
+        <a href="#engineering" class="nav-item magnetic" data-cursor="SPECS">Engineering</a>
+        <a href="#vault" class="nav-item magnetic" data-cursor="DROPS">Drop Vault</a>
+        <a href="#customizer" class="nav-item magnetic" data-cursor="LAB">Customizer</a>
+        <a href="#concierge" class="nav-item magnetic" data-cursor="VIP">VIP Concierge</a>
+      </nav>
+
+      <div class="header-right">
+        <!-- Sound Ambience Toggle -->
+        <button id="shoeAudioToggle" class="cyber-sound-btn magnetic" aria-label="Toggle Kinetic Synth" title="Toggle Sound Ambience">
+          <span class="sound-wave-icon">
+            <span class="bar b1"></span>
+            <span class="bar b2"></span>
+            <span class="bar b3"></span>
+          </span>
+          <span class="sound-label">SYNTH AMBIENCE</span>
+        </button>
+
+        <a href="#concierge" class="btn-cyan magnetic" data-cursor="ORDER">
+          <span class="btn-text">RESERVE PAIR</span>
+          <span class="btn-glitch"></span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- ==========================================================================
+           HERO SECTION: 3D INTERACTIVE SNEAKER SHOWCASE & HUD
+           ========================================================================== -->
+      <section id="hero" class="shoe-hero">
+        <div class="hero-backdrop-glow"></div>
+        <div class="hero-huge-watermark">STRYDE</div>
+
+        <div class="hero-container">
+          <!-- Left Column: Story & Typography -->
+          <div class="hero-left-content">
+            <div class="hero-edition-pill">
+              <span class="pulse-dot"></span>
+              <span class="pill-text">GEN-04 PROTOCOL // LIMITED 500 PAIRS WORLDWIDE</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="title-row"><span class="reveal-word">BEYOND</span> <span class="reveal-word outline-text">GRAVITY.</span></span>
+              <span class="title-row"><span class="reveal-word cyber-glow-text">KINETIX 01</span></span>
+            </h1>
+
+            <p class="hero-desc">
+              The world's first biomechanically tuned speed chassis. Dual-wishbone carbon plate architecture married with sub-critical nitrogen foam for an unmatched 94.8% kinetic energy return.
+            </p>
+
+            <!-- Colorway Selector HUD -->
+            <div class="colorway-hud">
+              <div class="hud-label">SELECT ATELIER COLORWAY:</div>
+              <div class="colorway-swatches">
+                <button class="swatch-btn active magnetic" data-color="obsidian" data-title="Cyber Obsidian" data-accent="#00f2fe" data-speed="94.8%" data-weight="182g">
+                  <span class="swatch-circle obsidian"></span>
+                  <span class="swatch-name">Cyber Obsidian</span>
+                </button>
+                <button class="swatch-btn magnetic" data-color="solar" data-title="Solar Flare Gold" data-accent="#ffaa00" data-speed="95.2%" data-weight="185g">
+                  <span class="swatch-circle solar"></span>
+                  <span class="swatch-name">Solar Flare</span>
+                </button>
+                <button class="swatch-btn magnetic" data-color="volt" data-title="Hyper Neon Volt" data-accent="#39ff14" data-speed="96.1%" data-weight="178g">
+                  <span class="swatch-circle volt"></span>
+                  <span class="swatch-name">Neon Volt</span>
+                </button>
+                <button class="swatch-btn magnetic" data-color="phantom" data-title="Phantom White" data-accent="#ffffff" data-speed="94.5%" data-weight="180g">
+                  <span class="swatch-circle phantom"></span>
+                  <span class="swatch-name">Phantom White</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- CTA Group -->
+            <div class="hero-actions">
+              <a href="#customizer" class="btn-cyan-primary magnetic" data-cursor="BUILD">
+                <span class="btn-text">CUSTOMIZE YOUR SPEC</span>
+                <span class="btn-arrow">→</span>
+              </a>
+              <a href="#engineering" class="btn-cyber-outline magnetic" data-cursor="INSPECT">
+                <span class="btn-text">INSPECT ANATOMY</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive 3D Sneaker Stage -->
+          <div class="hero-stage-container">
+            <!-- 3D Sneaker Wrapper with Interactive Mouse Gyroscope -->
+            <div class="sneaker-3d-stage" id="sneakerStage">
+              <div class="stage-energy-ring"></div>
+              <div class="stage-energy-ring outer"></div>
+              
+              <!-- Dynamic Sneaker Image with Glow Shift -->
+              <div class="sneaker-img-wrapper" id="sneakerVisual">
+                <img 
+                  id="mainShoeImage"
+                  src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1200&q=85" 
+                  alt="STRYDE Kinetix 01 Sneaker" 
+                  class="hero-shoe-img"
+                />
+                <div class="shoe-reflection"></div>
+              </div>
+
+              <!-- Live Telemetry Badges Floating in 3D Space -->
+              <div class="telemetry-card card-weight magnetic-card" data-cursor="CARBON">
+                <div class="tele-val" id="hudWeight">182g</div>
+                <div class="tele-lbl">CHASSIS MASS</div>
+              </div>
+
+              <div class="telemetry-card card-energy magnetic-card" data-cursor="POWER">
+                <div class="tele-val cyan" id="hudEnergy">94.8%</div>
+                <div class="tele-lbl">ENERGY RETURN</div>
+              </div>
+
+              <div class="telemetry-card card-chassis magnetic-card" data-cursor="PLATE">
+                <div class="tele-val">3K CARBON</div>
+                <div class="tele-lbl">DUAL-WISHBONE</div>
+              </div>
+            </div>
+
+            <!-- Live Status HUD -->
+            <div class="stage-bottom-hud">
+              <span class="hud-indicator"></span>
+              <span id="currentColorwayLabel">CURRENT SPEC: CYBER OBSIDIAN // AERODYNAMIC RACE FIT</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TICKER TAPE -->
+      <div class="cyber-ticker">
+        <div class="ticker-scroll">
+          <span>// STRYDE KINETIX 01</span> • 
+          <span>SUB-CRITICAL NITROGEN INFUSION</span> • 
+          <span>3K FULL-LENGTH CARBON WISHBONE</span> • 
+          <span>AERODYNAMIC RECYCLED MONOFILAMENT</span> • 
+          <span>VIBRAM KINETIC HYDRO-GRIP</span> • 
+          <span>HANDCRAFTED IN TOKYO & MILAN</span> •
+          <span>// STRYDE KINETIX 01</span> • 
+          <span>SUB-CRITICAL NITROGEN INFUSION</span> • 
+          <span>3K FULL-LENGTH CARBON WISHBONE</span> • 
+          <span>AERODYNAMIC RECYCLED MONOFILAMENT</span> • 
+          <span>VIBRAM KINETIC HYDRO-GRIP</span> • 
+          <span>HANDCRAFTED IN TOKYO & MILAN</span>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           ENGINEERING CHAPTERS (STORYTELLING & ANATOMY)
+           ========================================================================== */
+      -->
+      <section id="engineering" class="engineering-section">
+        <div class="section-header">
+          <span class="sub-badge">// CHAPTER 01 • BIOMECHANICAL ALCHEMY</span>
+          <h2 class="section-title">Anatomy of Pure Velocity</h2>
+          <div class="cyber-divider"></div>
+          <p class="section-subtitle">Engineered over 38 months of wind-tunnel tests and aerospace carbon finite element analysis.</p>
+        </div>
+
+        <div class="engineering-grid">
+          <!-- Card 1 -->
+          <div class="eng-card magnetic-card" data-cursor="CARBON">
+            <div class="eng-media">
+              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80" alt="Carbon Plate Technology" loading="lazy" />
+              <div class="eng-tag">ACT 01 // CHASSIS</div>
+            </div>
+            <div class="eng-content">
+              <h3>Dual-Wishbone 3K Carbon Plate</h3>
+              <p>Curved longitudinally and transversely to generate an explosive lever action upon toe-off, propelling you forward with zero energy dissipation.</p>
+              <div class="eng-metrics">
+                <div><span>+18%</span><small>Stride Forward Thrust</small></div>
+                <div><span>1.2mm</span><small>Aerospace Carbon Gauge</small></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="eng-card magnetic-card" data-cursor="FOAM">
+            <div class="eng-media">
+              <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80" alt="Nitrogen Foam Cushioning" loading="lazy" />
+              <div class="eng-tag">ACT 02 // NITROGEN</div>
+            </div>
+            <div class="eng-content">
+              <h3>Sub-Critical HyperFoam Matrix</h3>
+              <p>Superheated nitrogen is injected into lightweight polymers at supercritical pressures, creating millions of micro-cells for cloud-soft landings.</p>
+              <div class="eng-metrics">
+                <div><span>94.8%</span><small>Shock Energy Return</small></div>
+                <div><span>-42%</span><small>Joint Impact Load</small></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="eng-card magnetic-card" data-cursor="WEAVE">
+            <div class="eng-media">
+              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80" alt="Kinetic Adaptive Upper" loading="lazy" />
+              <div class="eng-tag">ACT 03 // UPPER</div>
+            </div>
+            <div class="eng-content">
+              <h3>AeroWeave Kinetic Monofilament</h3>
+              <p>Engineered with zero-seam thermobonding and targeted micro-ventilation zones that expand and contract organically with your foot's natural flexion.</p>
+              <div class="eng-metrics">
+                <div><span>48g</span><small>Upper Total Mass</small></div>
+                <div><span>360°</span><small>Dynamic Lock-In</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           LIMITED DROP VAULT (EXCLUSIVE SNEAKER REPERTOIRE)
+           ========================================================================== -->
+      <section id="vault" class="vault-section">
+        <div class="section-header">
+          <span class="sub-badge">// CHAPTER 02 • THE DROP VAULT</span>
+          <h2 class="section-title">Limited Atelier Releases</h2>
+          <div class="cyber-divider"></div>
+          <p class="section-subtitle">Every pair is individually serialized and laser-engraved with its unique edition number.</p>
+        </div>
+
+        <div class="vault-grid">
+          <!-- Shoe 1 -->
+          <div class="vault-card" data-cursor="INSPECT">
+            <div class="vault-image-box">
+              <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80" alt="Kinetix 01 Obsidian Cyber" />
+              <div class="vault-badge hot">LIMITED 150 PAIRS</div>
+              <div class="vault-price">$340</div>
+            </div>
+            <div class="vault-info">
+              <span class="v-code">EDITION // 001</span>
+              <h3>Kinetix 01 "Cyber Obsidian"</h3>
+              <p>Triple black matte chassis, cyan glow accents, 3K carbon plate, reflective lace weave.</p>
+              <div class="vault-meta">
+                <span>⚡ Racing Spec</span>
+                <span>🔥 In High Demand</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shoe 2 -->
+          <div class="vault-card" data-cursor="INSPECT">
+            <div class="vault-image-box">
+              <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=800&q=80" alt="Kinetix 01 Solar Flare" />
+              <div class="vault-badge">VAULT EXCLUSIVE</div>
+              <div class="vault-price">$380</div>
+            </div>
+            <div class="vault-info">
+              <span class="v-code">EDITION // 002</span>
+              <h3>Kinetix 01 "Solar Flare Gold"</h3>
+              <p>24K gold foil trim, amber nitrogen midsole, volcanic tread, titanium lace aglets.</p>
+              <div class="vault-meta">
+                <span>⚜ Atelier Gold</span>
+                <span>⭐ Hand-Numbered</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shoe 3 -->
+          <div class="vault-card" data-cursor="INSPECT">
+            <div class="vault-image-box">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Kinetix 01 Crimson Velocity" />
+              <div class="vault-badge hot">ALMOST GONE</div>
+              <div class="vault-price">$360</div>
+            </div>
+            <div class="vault-info">
+              <span class="v-code">EDITION // 003</span>
+              <h3>Kinetix 01 "Crimson Velocity"</h3>
+              <p>Hyper-red aerodynamic monofilament, smoked carbon wishbone, night-visibility stripes.</p>
+              <div class="vault-meta">
+                <span>🏎 Track Spec</span>
+                <span>⏱ 28 Pairs Left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           INTERACTIVE SNEAKER CUSTOMIZER LAB
+           ========================================================================== -->
+      <section id="customizer" class="customizer-section">
+        <div class="customizer-container">
+          <div class="section-header">
+            <span class="sub-badge">// CHAPTER 03 • THE BESPOKE LAB</span>
+            <h2 class="section-title">Configure Your Custom Kinetix 01</h2>
+            <div class="cyber-divider"></div>
+            <p class="section-subtitle">Tailor every biomechanical component and order your customized pair directly through our VIP WhatsApp concierge.</p>
+          </div>
+
+          <div class="customizer-layout">
+            <!-- Left: Live Customizer Configuration Options -->
+            <div class="config-controls">
+              
+              <!-- 1. Model Colorway -->
+              <div class="config-group">
+                <label class="group-title"><span class="step-num">01</span> Upper Colorway</label>
+                <div class="options-grid">
+                  <button class="cfg-btn active" data-type="color" data-val="Cyber Obsidian" data-add="0">
+                    <strong>Cyber Obsidian</strong>
+                    <small>Deep Void & Cyan Trim</small>
+                  </button>
+                  <button class="cfg-btn" data-type="color" data-val="Solar Flare Gold" data-add="40">
+                    <strong>Solar Flare Gold</strong>
+                    <small>Amber & 24K Gold Accents (+$40)</small>
+                  </button>
+                  <button class="cfg-btn" data-type="color" data-val="Hyper Neon Volt" data-add="20">
+                    <strong>Hyper Neon Volt</strong>
+                    <small>Electric Luminous Green (+$20)</small>
+                  </button>
+                  <button class="cfg-btn" data-type="color" data-val="Phantom White" data-add="10">
+                    <strong>Phantom White</strong>
+                    <small>Clean Minimalist Ice (+$10)</small>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2. Carbon Chassis Type -->
+              <div class="config-group">
+                <label class="group-title"><span class="step-num">02</span> Carbon Plate Architecture</label>
+                <div class="options-grid">
+                  <button class="cfg-btn active" data-type="plate" data-val="Dual-Wishbone 3K Carbon" data-add="0">
+                    <strong>Dual-Wishbone 3K</strong>
+                    <small>Balanced Speed & Endurance</small>
+                  </button>
+                  <button class="cfg-btn" data-type="plate" data-val="Full-Length Split Carbon Wing" data-add="50">
+                    <strong>Full-Length Aero Wing</strong>
+                    <small>Maximum Sprint Explosiveness (+$50)</small>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 3. Size Selection -->
+              <div class="config-group">
+                <label class="group-title"><span class="step-num">03</span> Select Size (US Men / Women)</label>
+                <div class="size-grid">
+                  <button class="size-btn">US 7.0</button>
+                  <button class="size-btn">US 7.5</button>
+                  <button class="size-btn">US 8.0</button>
+                  <button class="size-btn">US 8.5</button>
+                  <button class="size-btn active">US 9.0</button>
+                  <button class="size-btn">US 9.5</button>
+                  <button class="size-btn">US 10.0</button>
+                  <button class="size-btn">US 10.5</button>
+                  <button class="size-btn">US 11.0</button>
+                  <button class="size-btn">US 11.5</button>
+                  <button class="size-btn">US 12.0</button>
+                  <button class="size-btn">US 13.0</button>
+                </div>
+              </div>
+
+              <!-- 4. Laser Engraving -->
+              <div class="config-group">
+                <label class="group-title" for="customLaserText"><span class="step-num">04</span> Custom Laser Serial Engraving (Optional)</label>
+                <input type="text" id="customLaserText" maxlength="12" placeholder="e.g. STRYDE-07 or INITIALS" class="cyber-input" />
+              </div>
+            </div>
+
+            <!-- Right: Real-time Live Spec Summary Card -->
+            <div class="config-summary-card magnetic-card">
+              <div class="summary-glow"></div>
+              <div class="summary-header">
+                <span class="tech-badge">SPECIFICATION SHEET</span>
+                <h3 id="summaryTitle">STRYDE Kinetix 01 — Custom Spec</h3>
+              </div>
+
+              <div class="summary-lines">
+                <div class="sum-row">
+                  <span>Colorway:</span>
+                  <strong id="sumColor">Cyber Obsidian</strong>
+                </div>
+                <div class="sum-row">
+                  <span>Chassis:</span>
+                  <strong id="sumPlate">Dual-Wishbone 3K Carbon</strong>
+                </div>
+                <div class="sum-row">
+                  <span>Size:</span>
+                  <strong id="sumSize">US 9.0 (Standard Race Fit)</strong>
+                </div>
+                <div class="sum-row">
+                  <span>Laser Engraving:</span>
+                  <strong id="sumLaser">NONE</strong>
+                </div>
+                <div class="sum-row total-row">
+                  <span>Total Estimated Price:</span>
+                  <strong class="price-val" id="sumPrice">$340 USD</strong>
+                </div>
+              </div>
+
+              <div class="summary-guarantee">
+                <span>🛡 Handcrafted with Authenticity NFC Chip & Lifetime Carbon Warranty</span>
+              </div>
+
+              <!-- Instant Order via WhatsApp Button -->
+              <button id="orderWhatsAppBtn" class="btn-cyan-full magnetic" data-cursor="WHATSAPP">
+                <span class="btn-text">ORDER THIS BUILD ON WHATSAPP</span>
+                <span class="btn-icon">💬</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           VIP CONCIERGE & DIRECT CONTACT (CALL & WHATSAPP HUB)
+           ========================================================================== -->
+      <section id="concierge" class="concierge-section">
+        <div class="concierge-container">
+          <div class="concierge-grid">
+            
+            <!-- Left Info Panel -->
+            <div class="concierge-info">
+              <div class="vip-pill">// VIP SNEAKER CONCIERGE & APPOINTMENTS</div>
+              <h2 class="concierge-title">Speak Directly with Our Footwear Architects</h2>
+              <p class="concierge-desc">
+                For bespoke sizing scans, private studio fittings in New York / Tokyo, or bulk priority orders, connect instantly via Direct Phone Call or WhatsApp.
+              </p>
+
+              <!-- VIP DIRECT CONTACT BUTTONS (CALL & WHATSAPP) -->
+              <div class="vip-direct-hub">
+                <div class="hub-header">INSTANT VIP HOTLINES (24/7 CONCIERGE)</div>
+                <div class="hub-buttons">
+                  <!-- DIRECT PHONE CALL -->
+                  <a href="tel:+18005557463" class="vip-call-card magnetic" data-cursor="CALL">
+                    <div class="vip-icon phone">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="vip-micro">INSTANT PHONE CALL</span>
+                      <strong class="vip-main-num">+1 (800) 555-SHOE</strong>
+                    </div>
+                    <span class="live-pulse"></span>
+                  </a>
+
+                  <!-- DIRECT WHATSAPP CHAT -->
+                  <a 
+                    href="https://wa.me/18005557463?text=Hello%20STRYDE%20Concierge%2C%20I%20would%20like%20to%20order%20the%20Kinetix%2001%20sneaker." 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="vip-whatsapp-card magnetic" 
+                    data-cursor="WHATSAPP"
+                  >
+                    <div class="vip-icon whatsapp">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="vip-micro">WHATSAPP VIP CHAT</span>
+                      <strong class="vip-main-num">Chat with Stylist</strong>
+                    </div>
+                    <span class="live-pulse green"></span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Atelier Locations -->
+              <div class="locations-meta">
+                <div>
+                  <strong>📍 Tokyo Studio:</strong> 5-7-22 Minamiaoyama, Minato-ku, Tokyo
+                </div>
+                <div>
+                  <strong>📍 New York Studio:</strong> 428 Broadway, SoHo, New York
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Interactive Reservation Form -->
+            <div class="concierge-form-card">
+              <div class="form-head">
+                <h3>VIP Drop Reservation</h3>
+                <p>Submit to connect immediately with our master cobbler on WhatsApp</p>
+              </div>
+
+              <form id="shoeReserveForm" class="cyber-form">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="clientName">Full Name</label>
+                    <input type="text" id="clientName" name="clientName" required placeholder="Alexander Vance" />
+                  </div>
+                  <div class="field">
+                    <label for="clientPhone">WhatsApp / Mobile</label>
+                    <!-- INTENTIONAL ERROR #4: ID typo mismatch ('clientPhone_buggy_id' instead of 'clientPhone') -->
+                    <input type="tel" id="clientPhone_buggy_id" name="clientPhone" required placeholder="+1 (555) 000-0000" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label for="desiredModel">Target Edition</label>
+                    <select id="desiredModel" name="desiredModel">
+                      <option value="Kinetix 01 — Cyber Obsidian ($340)">Kinetix 01 — Cyber Obsidian ($340)</option>
+                      <option value="Kinetix 01 — Solar Flare Gold ($380)">Kinetix 01 — Solar Flare Gold ($380)</option>
+                      <option value="Kinetix 01 — Crimson Velocity ($360)">Kinetix 01 — Crimson Velocity ($360)</option>
+                      <option value="Bespoke Custom Build Spec ($390+)">Bespoke Custom Build Spec ($390+)</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="clientSize">Size</label>
+                    <select id="clientSize" name="clientSize">
+                      <option value="US 8.0">US 8.0</option>
+                      <option value="US 8.5">US 8.5</option>
+                      <option value="US 9.0" selected>US 9.0</option>
+                      <option value="US 9.5">US 9.5</option>
+                      <option value="US 10.0">US 10.0</option>
+                      <option value="US 10.5">US 10.5</option>
+                      <option value="US 11.0">US 11.0</option>
+                      <option value="US 12.0">US 12.0</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="deliveryCountry">Shipping Destination / City</label>
+                  <input type="text" id="deliveryCountry" name="deliveryCountry" placeholder="New York, London, Tokyo, Dubai..." required />
+                </div>
+
+                <button type="submit" class="btn-cyan-primary full-width magnetic" data-cursor="CONFIRM">
+                  <span class="btn-text">CONFIRM & OPEN IN WHATSAPP</span>
+                  <span class="btn-arrow">💬</span>
+                </button>
+              </form>
+
+              <div id="shoeSuccessMsg" class="success-box hidden">
+                <div class="chk-icon">✓</div>
+                <h4>Reservation Initialized!</h4>
+                <p>Transferring your sneaker spec directly to our WhatsApp concierge team...</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- GLOBAL FOOTER -->
+      <footer class="shoes-footer">
+        <div class="footer-wrap">
+          <div class="footer-brand-col">
+            <h3>STRYDE // LABS</h3>
+            <p>Pioneering the intersection of aerospace carbon composite physics and athletic kinetic art.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Footwear</h4>
+            <ul>
+              <li><a href="#hero">Kinetix 01</a></li>
+              <li><a href="#engineering">3K Carbon Chassis</a></li>
+              <li><a href="#customizer">Bespoke Customizer</a></li>
+              <li><a href="#vault">Drop Vault</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Concierge</h4>
+            <ul>
+              <li><a href="tel:+18005557463">Call: +1 (800) 555-SHOE</a></li>
+              <li><a href="https://wa.me/18005557463" target="_blank">WhatsApp VIP Support</a></li>
+              <li><a href="#concierge">Studio Appointments</a></li>
+              <li><a href="./index.html">Visit Restaurant Atelier</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bar">
+          <p>© 2026 STRYDE Labs Footwear Atelier. All rights reserved.</p>
+          <div class="footer-actions">
+            <a href="tel:+18005557463" class="mag-link magnetic" data-cursor="CALL">Call Now</a>
+            <a href="https://wa.me/18005557463" class="mag-link magnetic" data-cursor="WA">WhatsApp</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- STICKY FLOATING QUICK DOCK (CALL & WHATSAPP) -->
+  <aside class="shoe-dock" id="shoeDock" aria-label="Shoe Shop Quick Actions">
+    <a href="tel:+18005557463" class="dock-btn dock-phone magnetic" data-cursor="CALL" title="Call Shoe Atelier">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span class="dock-tip">Call Atelier</span>
+    </a>
+    <a 
+      href="https://wa.me/18005557463?text=Hi%20STRYDE%20team%2C%20I%20have%20an%20inquiry%20regarding%20Kinetix%2001." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="dock-btn dock-wa magnetic" 
+      data-cursor="WHATSAPP" 
+      title="Chat on WhatsApp"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+      <span class="dock-tip">WhatsApp</span>
+      <span class="dock-pulse"></span>
+    </a>
+  </aside>
+
+  <script type="module" src="./shoes.js"></script>
+</body>
+</html>
