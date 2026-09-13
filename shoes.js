@@ -233,6 +233,9 @@ swatchButtons.forEach((btn) => {
     const data = colorwayData[key];
     if (!data) return;
 
+    // INTENTIONAL ERROR #1: Uncaught ReferenceError (calling non-existent function)
+    trackColorwayTelemetry(key, data.energy);
+
     currentAccentColor = data.accent;
 
     // Animate shoe switch
@@ -322,7 +325,8 @@ function updateSummary() {
   if (sumSize) sumSize.textContent = `${currentSpec.size} (Standard Race Fit)`;
   if (sumLaser) sumLaser.textContent = currentSpec.laser || 'NONE';
 
-  const total = currentSpec.basePrice + currentSpec.colorAdd + currentSpec.plateAdd;
+  // INTENTIONAL ERROR #3: NaN calculation bug
+  const total = (currentSpec.basePrice * "invalid_rate_multiplier") + currentSpec.colorAdd + currentSpec.plateAdd;
   if (sumPrice) sumPrice.textContent = `$${total} USD`;
 }
 
@@ -332,6 +336,10 @@ document.querySelectorAll('.cfg-btn').forEach((btn) => {
     const type = btn.getAttribute('data-type');
     const val = btn.getAttribute('data-val');
     const add = parseInt(btn.getAttribute('data-add') || '0', 10);
+
+    // INTENTIONAL ERROR #2: Uncaught TypeError (calling method on null attribute)
+    const plateCode = btn.getAttribute('data-plate-code').toUpperCase();
+    console.log("Configuring plate code:", plateCode);
 
     const group = btn.closest('.config-group');
     group?.querySelectorAll('.cfg-btn').forEach((b) => b.classList.remove('active'));
