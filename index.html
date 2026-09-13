@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'AURA D'OR — Haute Gastronomy & Sensory Atelier</title>
+  <meta name="description" content="An immersive culinary journey crafted through fire, earth, and alchemy. Experience our multi-sensory degustation, private cellar, and bespoke dining." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="luxury-theme">
+  <!-- Custom Cursor System -->
+  <div id="cursor-dot" class="cursor-dot"></div>
+  <div id="cursor-ring" class="cursor-ring">
+    <span class="cursor-text"></span>
+  </div>
+  <canvas id="cursor-trail-canvas"></canvas>
+
+  <!-- Ambient Cursor Spotlight Background -->
+  <div class="cursor-spotlight" id="cursor-spotlight"></div>
+
+  <!-- Noise Overlay for Cinematic Texture -->
+  <div class="grain-overlay"></div>
+
+  <!-- Global Navigation Header -->
+  <header class="luxury-header" id="header">
+    <div class="header-inner">
+      <a href="#prologue" class="brand-logo magnetic" data-cursor="L'AURA">
+        <span class="logo-symbol">❖</span>
+        <div class="logo-text">
+          <span class="logo-main">L'AURA D'OR</span>
+          <span class="logo-sub">ATELIER GASTRONOMIQUE</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#prologue" class="nav-item magnetic" data-cursor="DISCOVER">Prologue</a>
+        <a href="#story-chapters" class="nav-item magnetic" data-cursor="CHAPTERS">The Story</a>
+        <a href="#degustation" class="nav-item magnetic" data-cursor="MENU">Degustation</a>
+        <a href="#flavor-lab" class="nav-item magnetic" data-cursor="CURATE">Journey Builder</a>
+        <a href="#cellar" class="nav-item magnetic" data-cursor="CELLAR">Private Cellar</a>
+        <a href="#reservations" class="nav-item magnetic" data-cursor="RESERVE">Reservations</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Sound Ambience Toggle -->
+        <button id="soundToggle" class="sound-toggle magnetic" aria-label="Toggle Sound Ambience" title="Toggle Sound Ambience">
+          <span class="sound-icon">
+            <svg class="sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <svg class="sound-off hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </span>
+          <span class="sound-label">AMBIENCE</span>
+        </button>
+
+        <a href="#reservations" class="btn-primary magnetic" data-cursor="BOOK">
+          <span class="btn-text">RESERVE TABLE</span>
+          <span class="btn-glow"></span>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Experience Wrapper -->
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- PROLOGUE / HERO SECTION -->
+      <section id="prologue" class="hero-section">
+        <!-- Interactive Hero Embers & Firefly Canvas -->
+        <canvas id="hero-particles-canvas" class="hero-canvas"></canvas>
+
+        <div class="hero-bg-media">
+          <div class="hero-overlay"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=2000&q=85" 
+            alt="Culinary alchemy flame grill" 
+            class="hero-img parallax-element"
+            data-speed="0.25"
+          />
+          <div class="hero-light-beam"></div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-badge animate-fade">
+            <span class="badge-line left-line"></span>
+            <span class="badge-icon">⚜</span>
+            <span class="badge-text">THREE MICHELIN STARS • 2026 ATELIER</span>
+            <span class="badge-line right-line"></span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-line"><span class="reveal-text">WHERE SACRED FLAME</span></span>
+            <span class="title-line"><span class="reveal-text">MEETS <em class="gold-shimmer">CULINARY</em> ALCHEMY</span></span>
+          </h1>
+
+          <p class="hero-description">
+            A theatrical 12-act dining odyssey orchestrated through botanical rarity, ancestral fire, and sensory poetry. Move your cursor to awaken the embers.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#story-chapters" class="btn-gold magnetic hero-main-btn" data-cursor="EXPLORE">
+              <span class="btn-text">BEGIN THE ODYSSEY</span>
+              <span class="btn-icon">→</span>
+            </a>
+            <a href="#degustation" class="btn-outline magnetic" data-cursor="TASTING">
+              <span class="btn-text">VIEW SIGNATURE MENU</span>
+            </a>
+          </div>
+
+          <!-- Hero Scroll Prompt -->
+          <div class="scroll-indicator">
+            <div class="scroll-mouse">
+              <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">TRAVEL WITH CURSOR & SCROLL</span>
+          </div>
+        </div>
+
+        <!-- Floating Story Badges with 3D Tilt Sheen -->
+        <div class="floating-story-card card-left parallax-element magnetic-card" data-speed="0.45" data-cursor="BINCHOTAN">
+          <div class="card-glow-edge"></div>
+          <span class="card-icon">🔥</span>
+          <div>
+            <div class="card-tag">ANCESTRAL HEAT</div>
+            <div class="card-val">850° Binchotan Oak Charcoal</div>
+          </div>
+        </div>
+
+        <div class="floating-story-card card-right parallax-element magnetic-card" data-speed="0.65" data-cursor="TERROIR">
+          <div class="card-glow-edge"></div>
+          <span class="card-icon">🌿</span>
+          <div>
+            <div class="card-tag">BIODYNAMIC TERROIR</div>
+            <div class="card-val">Highland Foraged Botanicals</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER STORYLINE TICKER -->
+      <div class="story-ticker">
+        <div class="ticker-track">
+          <span>CHAPTER I: THE SACRED EARTH</span> • 
+          <span>CHAPTER II: THE LIVING FLAME</span> • 
+          <span>CHAPTER III: SENSORY HARMONY</span> • 
+          <span>CHAPTER IV: THE SOMMELIER'S VAULT</span> • 
+          <span>CHAPTER V: THE IMMERSIVE TABLE</span> •
+          <span>CHAPTER I: THE SACRED EARTH</span> • 
+          <span>CHAPTER II: THE LIVING FLAME</span> • 
+          <span>CHAPTER III: SENSORY HARMONY</span> • 
+          <span>CHAPTER IV: THE SOMMELIER'S VAULT</span> • 
+          <span>CHAPTER V: THE IMMERSIVE TABLE</span>
+        </div>
+      </div>
+
+      <!-- STORYTELLING CHAPTERS (INTERACTIVE STORY ODYSSEY) -->
+      <section id="story-chapters" class="chapters-section">
+        <div class="section-intro">
+          <span class="chapter-number">THE PHILOSOPHY</span>
+          <h2 class="section-headline">A Gastronomic Symphony in Four Acts</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtext">Hover and trace your cursor through each chapter to reveal the secrets behind our culinary mastery.</p>
+        </div>
+
+        <div class="chapter-cards-container">
+          <!-- Chapter 1 -->
+          <article class="chapter-card magnetic-card" data-cursor="EARTH">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1607301405390-d831c242f59b?auto=format&fit=crop&w=1200&q=80" alt="Heirloom seasonal produce foraging" loading="lazy" />
+              <div class="card-gradient"></div>
+              <span class="chapter-watermark">01</span>
+            </div>
+            <div class="card-content">
+              <span class="chapter-label">ACT I • THE TERROIR</span>
+              <h3 class="chapter-title">Sacred Soil & Dawn Harvest</h3>
+              <p class="chapter-text">
+                Every dawn before first sunlight, our culinary botanists forage Alpine white truffles, wild sea buckthorn, and heirloom moss from our private biodynamic sanctuary.
+              </p>
+              <div class="chapter-stats">
+                <div class="stat-item">
+                  <span class="stat-num">100%</span>
+                  <span class="stat-lbl">Micro-Climate Foraged</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">4 hrs</span>
+                  <span class="stat-lbl">Field to Course Time</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 2 -->
+          <article class="chapter-card magnetic-card" data-cursor="FLAME">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Chef finishing dish with flame and smoke" loading="lazy" />
+              <div class="card-gradient"></div>
+              <span class="chapter-watermark">02</span>
+            </div>
+            <div class="card-content">
+              <span class="chapter-label">ACT II • THE ALCHEMY</span>
+              <h3 class="chapter-title">The Discipline of Sacred Fire</h3>
+              <p class="chapter-text">
+                We harness Kishu Binchotan charcoal, fragrant cherrywood smoke, and sub-zero liquid nitrogen extractions to unlock flavors that defy conventional physics.
+              </p>
+              <div class="chapter-stats">
+                <div class="stat-item">
+                  <span class="stat-num">45 Days</span>
+                  <span class="stat-lbl">Koji Dry-Aging Protocol</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">850°C</span>
+                  <span class="stat-lbl">Searing Core Heat</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 3 -->
+          <article class="chapter-card magnetic-card" data-cursor="POETRY">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1579027989536-b7b1f875659b?auto=format&fit=crop&w=1200&q=80" alt="Gourmet Michelin star plating" loading="lazy" />
+              <div class="card-gradient"></div>
+              <span class="chapter-watermark">03</span>
+            </div>
+            <div class="card-content">
+              <span class="chapter-label">ACT III • THE ARCHITECTURE</span>
+              <h3 class="chapter-title">Sculptural Plating & Aromas</h3>
+              <p class="chapter-text">
+                Dining here is visual theater. Hand-blown volcanic glass vessels, aromatic pine vapor chambers, and edible 24K gold leaf turn each plate into high art.
+              </p>
+              <div class="chapter-stats">
+                <div class="stat-item">
+                  <span class="stat-num">12</span>
+                  <span class="stat-lbl">Theatrical Courses</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">3 Senses</span>
+                  <span class="stat-lbl">Sight, Scent, Sound</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 4 -->
+          <article class="chapter-card magnetic-card" data-cursor="SPIRIT">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80" alt="Rare wine cellar vintage selection" loading="lazy" />
+              <div class="card-gradient"></div>
+              <span class="chapter-watermark">04</span>
+            </div>
+            <div class="card-content">
+              <span class="chapter-label">ACT IV • THE VAULT</span>
+              <h3 class="chapter-title">Grand Cru Pairings & Rare Vintages</h3>
+              <p class="chapter-text">
+                A 3,800-bottle subterranean vault curated by Master Sommeliers, featuring rare biodynamic vintages, barrel-aged sakes, and non-alcoholic botanical distillates.
+              </p>
+              <div class="chapter-stats">
+                <div class="stat-item">
+                  <span class="stat-num">3,800+</span>
+                  <span class="stat-lbl">Vault Bottles</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">1961</span>
+                  <span class="stat-lbl">Oldest Cellar Vintage</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SIGNATURE DEGUSTATION SHOWCASE -->
+      <section id="degustation" class="degustation-section">
+        <div class="section-intro">
+          <span class="chapter-number">THE TASTING REPERTOIRE</span>
+          <h2 class="section-headline">Signature Degustation Creations</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtext">Click or hover any masterpiece to inspect its flavor architecture, ingredients, and sommelier pairing.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="menu-tabs">
+          <button class="menu-tab-btn active magnetic" data-category="all" data-cursor="ALL">All Creations</button>
+          <button class="menu-tab-btn magnetic" data-category="ocean" data-cursor="OCEAN">Ocean & Depths</button>
+          <button class="menu-tab-btn magnetic" data-category="land" data-cursor="LAND">Land & Forage</button>
+          <button class="menu-tab-btn magnetic" data-category="sweet" data-cursor="SWEET">Dessert Alchemy</button>
+        </div>
+
+        <!-- Interactive Dish Grid -->
+        <div class="dishes-grid" id="dishesGrid">
+
+          <!-- Dish 1 -->
+          <div class="dish-item" data-category="ocean" data-cursor="TASTE">
+            <div class="dish-media">
+              <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Royal Beluga Caviar with smoked dashi sphere" loading="lazy" />
+              <div class="dish-price-pill">$95</div>
+            </div>
+            <div class="dish-body">
+              <div class="dish-tags">
+                <span class="d-tag">Ocean</span>
+                <span class="d-tag gold">Chef's Signature</span>
+              </div>
+              <h3 class="dish-title">Imperial Ossetra Caviar Sphere</h3>
+              <p class="dish-desc">Smoked bonito dashi emulsion, gold leaf, yuzu gelée, crispy nori tuile.</p>
+              <div class="dish-pairing">
+                <span class="pairing-icon">🍷</span>
+                <span>Pairing: Dom Pérignon Vintage 2012</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 2 -->
+          <div class="dish-item" data-category="land" data-cursor="TASTE">
+            <div class="dish-media">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Miyazaki A5 Wagyu Ribeye" loading="lazy" />
+              <div class="dish-price-pill">$145</div>
+            </div>
+            <div class="dish-body">
+              <div class="dish-tags">
+                <span class="d-tag">Land</span>
+                <span class="d-tag gold">Binchotan Smoked</span>
+              </div>
+              <h3 class="dish-title">Miyazaki A5 Wagyu Tenderloin</h3>
+              <p class="dish-desc">45-day koji cured, black winter truffle jus, charred maitake mushroom, smoked marrow emulsion.</p>
+              <div class="dish-pairing">
+                <span class="pairing-icon">🍷</span>
+                <span>Pairing: Château Margaux Grand Cru 2010</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 3 -->
+          <div class="dish-item" data-category="ocean" data-cursor="TASTE">
+            <div class="dish-media">
+              <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80" alt="Hokkaido Scallop Crudo" loading="lazy" />
+              <div class="dish-price-pill">$85</div>
+            </div>
+            <div class="dish-body">
+              <div class="dish-tags">
+                <span class="d-tag">Ocean</span>
+                <span class="d-tag">Raw Atelier</span>
+              </div>
+              <h3 class="dish-title">Hokkaido Scallop & White Truffle</h3>
+              <p class="dish-desc">Compressed heirloom apple, finger lime pearls, elderflower ponzu, sea fennel oil.</p>
+              <div class="dish-pairing">
+                <span class="pairing-icon">🍷</span>
+                <span>Pairing: Meursault Premier Cru 2019</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 4 -->
+          <div class="dish-item" data-category="land" data-cursor="TASTE">
+            <div class="dish-media">
+              <img src="https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=800&q=80" alt="Roasted Duck Breast with Cherry Glaze" loading="lazy" />
+              <div class="dish-price-pill">$110</div>
+            </div>
+            <div class="dish-body">
+              <div class="dish-tags">
+                <span class="d-tag">Land</span>
+                <span class="d-tag gold">Aged 21 Days</span>
+              </div>
+              <h3 class="dish-title">Challans Duck in Spiced Honey</h3>
+              <p class="dish-desc">Lavender blossom honey glaze, beet reduction, sour cherry compote, crisp sunchoke.</p>
+              <div class="dish-pairing">
+                <span class="pairing-icon">🍷</span>
+                <span>Pairing: Domaine de la Romanée-Conti 2015</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 5 -->
+          <div class="dish-item" data-category="sweet" data-cursor="TASTE">
+            <div class="dish-media">
+              <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80" alt="Obsidian Chocolate Geode" loading="lazy" />
+              <div class="dish-price-pill">$65</div>
+            </div>
+            <div class="dish-body">
+              <div class="dish-tags">
+                <span class="d-tag">Dessert Alchemy</span>
+                <span class="d-tag gold">Sensory Finale</span>
+              </div>
+              <h3 class="dish-title">The Obsidian Gold Geode</h3>
+              <p class="dish-desc">72% Single-Origin Ecuadorian dark chocolate sphere, smoked bourbon caramel, hazelnut praline dust.</p>
+              <div class="dish-pairing">
+                <span class="pairing-icon">🍷</span>
+                <span>Pairing: Taylor Fladgate 40-Year Tawny Port</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 6 -->
+          <div class="dish-item" data-category="sweet" data-cursor="TASTE">
+            <div class="dish-media">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Alpine Pine & Cloudberry Parfait" loading="lazy" />
+              <div class="dish-price-pill">$60</div>
+            </div>
+            <div class="dish-body">
+              <div class="dish-tags">
+                <span class="d-tag">Dessert Alchemy</span>
+                <span class="d-tag">Botanical</span>
+              </div>
+              <h3 class="dish-title">Alpine Cloudberry & Pine Snow</h3>
+              <p class="dish-desc">Liquid nitrogen pine needle snow, wild cloudberry coulis, toasted buckwheat financier.</p>
+              <div class="dish-pairing">
+                <span class="pairing-icon">🍷</span>
+                <span>Pairing: Château d'Yquem Sauternes 2014</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- INTERACTIVE TASTING JOURNEY BUILDER (CUSTOM FLAVOR LAB) -->
+      <section id="flavor-lab" class="flavor-section">
+        <div class="flavor-container">
+          <div class="flavor-header">
+            <span class="chapter-number">INTERACTIVE SENSORY LAB</span>
+            <h2 class="section-headline">Curate Your 4-Course Tasting Odyssey</h2>
+            <div class="gold-divider"></div>
+            <p class="section-subtext">Select your favorite courses to calculate your personalized flavor profile and preview your custom sommelier experience.</p>
+          </div>
+
+          <div class="builder-layout">
+            <!-- Course Selectors -->
+            <div class="course-selectors">
+              <!-- Course 1 -->
+              <div class="course-slot" data-slot="1">
+                <div class="slot-header">
+                  <span class="slot-badge">Course 01</span>
+                  <span class="slot-title">The Awakening (Amuse-Bouche)</span>
+                </div>
+                <div class="slot-options">
+                  <button class="option-btn active" data-name="Ossetra Caviar Tartlet" data-umami="8" data-citrus="5" data-richness="7">
+                    <span>Ossetra Caviar Tartlet</span>
+                    <span class="opt-tag">Briny • Crisp</span>
+                  </button>
+                  <button class="option-btn" data-name="Smoked Osetra Oyster & Sea Mist" data-umami="9" data-citrus="6" data-richness="6">
+                    <span>Oyster & Sea Mist</span>
+                    <span class="opt-tag">Mineral • Smoke</span>
+                  </button>
+                  <button class="option-btn" data-name="Alpine Truffle Custard" data-umami="7" data-citrus="2" data-richness="9">
+                    <span>Alpine Truffle Custard</span>
+                    <span class="opt-tag">Earthy • Silky</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Course 2 -->
+              <div class="course-slot" data-slot="2">
+                <div class="slot-header">
+                  <span class="slot-badge">Course 02</span>
+                  <span class="slot-title">The Tide (Seafood Prelude)</span>
+                </div>
+                <div class="slot-options">
+                  <button class="option-btn" data-name="Torched Brittany Blue Lobster" data-umami="8" data-citrus="4" data-richness="8">
+                    <span>Brittany Blue Lobster</span>
+                    <span class="opt-tag">Sweet • Bisque</span>
+                  </button>
+                  <button class="option-btn active" data-name="Hokkaido Scallop & Truffle" data-umami="7" data-citrus="7" data-richness="6">
+                    <span>Hokkaido Scallop</span>
+                    <span class="opt-tag">Floral • Ponzu</span>
+                  </button>
+                  <button class="option-btn" data-name="Glacier Turbot in Champagne Foam" data-umami="6" data-citrus="5" data-richness="7">
+                    <span>Glacier Turbot</span>
+                    <span class="opt-tag">Velvety • Caviar</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Course 3 -->
+              <div class="course-slot" data-slot="3">
+                <div class="slot-header">
+                  <span class="slot-badge">Course 03</span>
+                  <span class="slot-title">The Hearth (Earth & Fire)</span>
+                </div>
+                <div class="slot-options">
+                  <button class="option-btn active" data-name="Miyazaki A5 Wagyu Tenderloin" data-umami="10" data-citrus="2" data-richness="10">
+                    <span>Miyazaki A5 Wagyu</span>
+                    <span class="opt-tag">Smoky • Marbled</span>
+                  </button>
+                  <button class="option-btn" data-name="Dry-Aged Challans Duck" data-umami="9" data-citrus="5" data-richness="8">
+                    <span>Challans Duck</span>
+                    <span class="opt-tag">Lavender • Crisp</span>
+                  </button>
+                  <button class="option-btn" data-name="Slow-Braised Milk-Fed Veal Cheeks" data-umami="8" data-citrus="3" data-richness="9">
+                    <span>Braised Veal Cheeks</span>
+                    <span class="opt-tag">Truffled • Melted</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Course 4 -->
+              <div class="course-slot" data-slot="4">
+                <div class="slot-header">
+                  <span class="slot-badge">Course 04</span>
+                  <span class="slot-title">The Epilogue (Sweet Grandeur)</span>
+                </div>
+                <div class="slot-options">
+                  <button class="option-btn active" data-name="Obsidian Gold Geode" data-umami="4" data-citrus="2" data-richness="9">
+                    <span>Obsidian Gold Geode</span>
+                    <span class="opt-tag">72% Dark • Bourbon</span>
+                  </button>
+                  <button class="option-btn" data-name="Cloudberry & Pine Snow" data-umami="2" data-citrus="9" data-richness="4">
+                    <span>Cloudberry & Pine</span>
+                    <span class="opt-tag">Nordic • Frozen</span>
+                  </button>
+                  <button class="option-btn" data-name="Roasted Fig & Smoked Mascarpone" data-umami="5" data-citrus="4" data-richness="7">
+                    <span>Roasted Fig Parfait</span>
+                    <span class="opt-tag">Honey • Caramel</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-Time Radar / Profile Card -->
+            <div class="flavor-result-card magnetic-card">
+              <div class="card-glow"></div>
+              <div class="result-header">
+                <span class="gold-icon">⚜</span>
+                <span class="result-label">YOUR PERSONALIZED PROFILE</span>
+                <h3 class="result-name" id="profileName">The Monarch's Degustation</h3>
+              </div>
+
+              <!-- Profile Meter Bars -->
+              <div class="flavor-meters">
+                <div class="meter-row">
+                  <div class="meter-info">
+                    <span>Umami & Depth</span>
+                    <span id="valUmami">88%</span>
+                  </div>
+                  <div class="meter-track"><div class="meter-fill" id="fillUmami" style="width: 88%;"></div></div>
+                </div>
+
+                <div class="meter-row">
+                  <div class="meter-info">
+                    <span>Botanical & Acidity</span>
+                    <span id="valCitrus">64%</span>
+                  </div>
+                  <div class="meter-track"><div class="meter-fill" id="fillCitrus" style="width: 64%;"></div></div>
+                </div>
+
+                <div class="meter-row">
+                  <div class="meter-info">
+                    <span>Richness & Velour</span>
+                    <span id="valRichness">92%</span>
+                  </div>
+                  <div class="meter-track"><div class="meter-fill" id="fillRichness" style="width: 92%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Sommelier Pairing Note -->
+              <div class="sommelier-recommendation">
+                <div class="rec-title">Sommelier Master Pairing</div>
+                <p id="recText">Grand Reserve Flight — 2012 Dom Pérignon Champagne, 2010 Château Margaux, & 40-Year Tawny Port.</p>
+              </div>
+
+              <!-- Transfer to Reservation Button -->
+              <button id="bookCustomJourney" class="btn-gold full-width magnetic" data-cursor="PRELOAD">
+                <span class="btn-text">RESERVE THIS MENU (VIA WHATSAPP)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS & CRITICS MARQUEE -->
+      <section class="critics-section">
+        <div class="critics-container">
+          <div class="critics-badge">ACCLAIM & RECOGNITION</div>
+          <div class="marquee-wrapper">
+            <div class="critics-marquee" id="criticsMarquee">
+              <!-- Review 1 -->
+              <div class="critic-card">
+                <div class="stars">★★★★★</div>
+                <p class="critic-quote">"An ethereal collision of ancestral smoke and modern physics. L’Aura D’or is redefining fine dining in the 21st century."</p>
+                <div class="critic-author">
+                  <strong>Michelin Guide International</strong>
+                  <span>Three Michelin Stars (2026)</span>
+                </div>
+              </div>
+
+              <!-- Review 2 -->
+              <div class="critic-card">
+                <div class="stars">★★★★★</div>
+                <p class="critic-quote">"The A5 Wagyu and Caviar Sphere were transcendent. The storytelling through each course leaves you breathless."</p>
+                <div class="critic-author">
+                  <strong>The World’s 50 Best Restaurants</strong>
+                  <span>Rank #4 Global Best Dining</span>
+                </div>
+              </div>
+
+              <!-- Review 3 -->
+              <div class="critic-card">
+                <div class="stars">★★★★★</div>
+                <p class="critic-quote">"Service that borders on telepathy, paired with one of the most stunning subterranean cellars on the planet."</p>
+                <div class="critic-author">
+                  <strong>Gourmet & Wine Gazette</strong>
+                  <span>Sommelier of the Year Award</span>
+                </div>
+              </div>
+
+              <!-- Review 4 -->
+              <div class="critic-card">
+                <div class="stars">★★★★★</div>
+                <p class="critic-quote">"A multisensory triumph. From the opening Alpine mist to the chocolate geode, pure culinary alchemy."</p>
+                <div class="critic-author">
+                  <strong>Le Figaro Gastronomie</strong>
+                  <span>Exceptional Distinction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE SOMMELIER'S CELLAR & EXPERIENCE GALLERY -->
+      <section id="cellar" class="cellar-section">
+        <div class="section-intro">
+          <span class="chapter-number">THE SUBTERRANEAN CELLAR</span>
+          <h2 class="section-headline">The Vault of Living Legacies</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtext">Resting 30 feet below ground in temperature-controlled limestone vaults.</p>
+        </div>
+
+        <div class="cellar-gallery">
+          <div class="gallery-col col-main">
+            <div class="gallery-card tall magnetic-card" data-cursor="VAULT">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=85" alt="Subterranean Wine Cellar" loading="lazy" />
+              <div class="gallery-caption">
+                <h4>Private Sommelier Room</h4>
+                <p>Exclusive 8-seat tasting cellar with rare vertical vintages from Bordeaux & Burgundy.</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-col col-sub">
+            <div class="gallery-card magnetic-card" data-cursor="CHEF">
+              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=85" alt="Chef finishing plating" loading="lazy" />
+              <div class="gallery-caption">
+                <h4>The Chef’s Counter</h4>
+                <p>Front-row sensory seats overlooking the open embers.</p>
+              </div>
+            </div>
+            <div class="gallery-card magnetic-card" data-cursor="ROOM">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=85" alt="Atmospheric Dining Room" loading="lazy" />
+              <div class="gallery-caption">
+                <h4>The Obsidian Dining Hall</h4>
+                <p>Designed for acoustic serenity and warm golden intimacy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER V: RESERVATIONS & DIRECT CONTACT SECTION (CALL & WHATSAPP) -->
+      <section id="reservations" class="reservation-section">
+        <div class="reservation-container">
+          
+          <div class="reservation-grid">
+            <!-- Left: Story & VIP Direct Call / WhatsApp Hub -->
+            <div class="reservation-story-panel">
+              <div class="res-badge">FINAL CHAPTER • THE GATHERING</div>
+              <h2 class="res-title">Claim Your Seat at the Atelier</h2>
+              <p class="res-sub">
+                Reservations are released on the first of each month. For private buyouts, exclusive wine flights, or bespoke celebrations, speak directly with our VIP Concierge team.
+              </p>
+
+              <!-- DIRECT CONTACT ACTION HUB (CALL & WHATSAPP EMPHASIZED) -->
+              <div class="vip-action-hub">
+                <div class="hub-label">INSTANT VIP RESERVATION & CONCIERGE</div>
+                
+                <div class="vip-buttons-row">
+                  <!-- DIRECT CALL BUTTON -->
+                  <a href="tel:+18005559876" class="vip-btn call-btn magnetic" data-cursor="CALL">
+                    <div class="vip-icon-wrapper">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                    </div>
+                    <div class="vip-btn-text">
+                      <span class="btn-micro">DIRECT PHONE CALL</span>
+                      <span class="btn-bold">+1 (800) 555-9876</span>
+                    </div>
+                    <span class="pulse-indicator"></span>
+                  </a>
+
+                  <!-- DIRECT WHATSAPP BUTTON -->
+                  <a 
+                    href="https://wa.me/18005559876?text=Hello%20L%27Aura%20D%27Or%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20a%20VIP%20table%20reservation." 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="vip-btn whatsapp-btn magnetic" 
+                    data-cursor="WHATSAPP"
+                  >
+                    <div class="vip-icon-wrapper wa-color">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                      </svg>
+                    </div>
+                    <div class="vip-btn-text">
+                      <span class="btn-micro">WHATSAPP CHAT</span>
+                      <span class="btn-bold">Chat on WhatsApp</span>
+                    </div>
+                    <span class="pulse-indicator green"></span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Location & Hours Info -->
+              <div class="res-info-list">
+                <div class="info-item">
+                  <span class="info-icon">📍</span>
+                  <div>
+                    <strong>Atelier Location</strong>
+                    <p>448 Avenue Montaigne, 8th Arrondissement, Paris / 100 Madison Ave, New York</p>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <span class="info-icon">🕰</span>
+                  <div>
+                    <strong>Service Hours</strong>
+                    <p>Wednesday – Sunday • 18:30 – 23:30 (Seatings at 18:45 & 21:00)</p>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <span class="info-icon">👔</span>
+                  <div>
+                    <strong>Dress Code & Ambience</strong>
+                    <p>Elegant Formal attire • Complimentary valet parking</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Booking Form (Submits & triggers WhatsApp confirmation) -->
+            <div class="reservation-form-panel">
+              <div class="form-wrapper">
+                <div class="form-header">
+                  <h3>Reserve An Evening</h3>
+                  <p>Instant table confirmation sent to your WhatsApp</p>
+                </div>
+
+                <form id="bookingForm" class="booking-form">
+                  <div class="form-row">
+                    <div class="form-field">
+                      <label for="guestName">Guest Name</label>
+                      <input type="text" id="guestName" name="guestName" required placeholder="Lord / Lady / Full Name" />
+                    </div>
+                    <div class="form-field">
+                      <label for="guestPhone">WhatsApp / Mobile</label>
+                      <input type="tel" id="guestPhone" name="guestPhone" required placeholder="+1 (555) 000-0000" />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-field">
+                      <label for="bookingDate">Desired Date</label>
+                      <input type="date" id="bookingDate" name="bookingDate" required />
+                    </div>
+                    <div class="form-field">
+                      <label for="partySize">Party Size</label>
+                      <select id="partySize" name="partySize" required>
+                        <option value="2 Guests">2 Guests (Intimate Table)</option>
+                        <option value="4 Guests">4 Guests (Salon Table)</option>
+                        <option value="6 Guests">6 Guests (Chef's Counter)</option>
+                        <option value="8+ Guests">8+ Guests (Private Vault Room)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="seatingExperience">Experience Preference</label>
+                    <select id="seatingExperience" name="seatingExperience">
+                      <option value="12-Course Sensory Tasting ($285/guest)">12-Course Sensory Tasting ($285 / guest)</option>
+                      <option value="Chef's Counter Flame Alchemy ($350/guest)">Chef's Counter Flame Alchemy ($350 / guest)</option>
+                      <option value="Grand Cellar Truffle & Caviar Pairing ($495/guest)">Grand Cellar Truffle & Caviar Pairing ($495 / guest)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="dietaryNotes">Special Requests / Dietary Notes</label>
+                    <textarea id="dietaryNotes" name="dietaryNotes" rows="2" placeholder="Allergies, anniversary, wine preferences..."></textarea>
+                  </div>
+
+                  <button type="submit" class="btn-gold full-width magnetic" data-cursor="CONFIRM">
+                    <span class="btn-text">CONFIRM & SEND TO WHATSAPP</span>
+                    <span class="btn-icon">💬</span>
+                  </button>
+                </form>
+
+                <div id="bookingSuccessMessage" class="booking-success hidden">
+                  <div class="success-icon">✓</div>
+                  <h4>Reservation Inquiry Created!</h4>
+                  <p>Opening WhatsApp to connect you directly with our reservation maître d'...</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- GLOBAL FOOTER -->
+      <footer class="luxury-footer">
+        <div class="footer-container">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <div class="logo-symbol">❖</div>
+              <h3>L'AURA D'OR</h3>
+              <p>Where the art of haute gastronomy becomes a lifetime sensory memory.</p>
+            </div>
+
+            <div class="footer-links">
+              <h4>Experiences</h4>
+              <ul>
+                <li><a href="#story-chapters">The 5 Acts</a></li>
+                <li><a href="#degustation">Degustation Menu</a></li>
+                <li><a href="#flavor-lab">Sensory Journey Builder</a></li>
+                <li><a href="#cellar">Private Wine Vault</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links">
+              <h4>VIP Inquiries</h4>
+              <ul>
+                <li><a href="tel:+18005559876">Call: +1 (800) 555-9876</a></li>
+                <li><a href="https://wa.me/18005559876" target="_blank">Chat on WhatsApp</a></li>
+                <li><a href="#reservations">Private Room Buyouts</a></li>
+                <li><a href="#reservations">Press & Media</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>© 2026 L'Aura D'or Gastronomy Atelier. All rights reserved.</p>
+            <div class="footer-socials">
+              <a href="#" class="social-link magnetic" data-cursor="IG">Instagram</a>
+              <a href="#" class="social-link magnetic" data-cursor="MICHELIN">Michelin Guide</a>
+              <a href="tel:+18005559876" class="social-link magnetic" data-cursor="CALL">Direct Call</a>
+              <a href="https://wa.me/18005559876" class="social-link magnetic" data-cursor="WA">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- STICKY FLOATING QUICK-CONTACT ACTION BAR (CALL & WHATSAPP) -->
+  <aside class="floating-quick-dock" id="floatingDock" aria-label="Quick Contact Actions">
+    <!-- Call Quick Action -->
+    <a href="tel:+18005559876" class="dock-btn dock-call magnetic" data-cursor="CALL" title="Call Restaurant Now">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span class="dock-tooltip">Call Us</span>
+    </a>
+
+    <!-- WhatsApp Quick Action -->
+    <a 
+      href="https://wa.me/18005559876?text=Hi%20L%27Aura%20D%27Or%2C%20I%20would%20like%20to%20make%20a%20table%20reservation." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="dock-btn dock-whatsapp magnetic" 
+      data-cursor="WHATSAPP" 
+      title="Chat on WhatsApp"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+      <span class="dock-tooltip">WhatsApp</span>
+      <span class="online-badge"></span>
+    </a>
+  </aside>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
